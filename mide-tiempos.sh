@@ -7,7 +7,7 @@ function medir_tiempo(){
 	salto=$4
 	salida=$5
 
-	echo "" > $salida/$algoritmo.txt
+	echo "" > $salida/$algoritmo.dat
 	echo "Midiendo el tiempo de ${algoritmo}:"
 	for (( i = $inicio; i <= $fin; i += $salto )); do
 		echo "	Vector con ${i} elementos"
@@ -22,9 +22,9 @@ salida=$1
 echo "Calculando la eficiencia empírica:"
 echo ""
 echo "Algoritmos O(n2)"
-# medir_tiempo "burbuja" 5000 125000 5000 "$salida"
-# medir_tiempo "insercion" 5000 125000 5000 "$salida"
-# medir_tiempo "seleccion" 5000 125000 5000 "$salida"
+medir_tiempo "burbuja" 5000 125000 5000 "$salida"
+medir_tiempo "insercion" 5000 125000 5000 "$salida"
+medir_tiempo "seleccion" 5000 125000 5000 "$salida"
 echo ""
 echo "Algoritmos O(nlog(n))"
 medir_tiempo "heapsort" 50000 1250000 50000 "$salida"
